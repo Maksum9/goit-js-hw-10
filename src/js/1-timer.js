@@ -40,6 +40,20 @@ function addLeadingZero(value) {
   return value.toString().padStart(2, "0");
 }
 
+function convertMs(ms) {
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+
+  const days = Math.floor(ms / day);
+  const hours = Math.floor((ms % day) / hour);
+  const minutes = Math.floor((ms % hour) / minute);
+  const seconds = Math.floor((ms % minute) / second);
+
+  return { days, hours, minutes, seconds };
+}
+
 function updateTimerDisplay(ms) {
   const { days, hours, minutes, seconds } = convertMs(ms);
   timerFields.days.textContent = addLeadingZero(days);

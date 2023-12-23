@@ -27,15 +27,21 @@ form.addEventListener("submit", function (event) {
       iziToast.success({
         title: "Fulfilled",
         message: `✅ Fulfilled promise in ${value}ms`,
-        position: "topRight"
+        position: "topRight",
       });
+
+      delayInput.value = "";
+      stateInput.checked = false;
     },
     (reason) => {
       iziToast.error({
         title: "Rejected",
         message: `❌ Rejected promise in ${reason}ms`,
-        position: "topRight"
+        position: "topRight",
       });
+
+      delayInput.value = "";
+      stateInput.checked = false;
     }
   );
 });
